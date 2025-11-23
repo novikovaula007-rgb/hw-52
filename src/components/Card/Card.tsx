@@ -1,17 +1,11 @@
-type typeSuit = 'diams' | 'hearts' | 'clubs' | 'spades'
-type typeRank = '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | 'J' | 'Q' | 'K' | 'A'
+import type {ICard} from "../../types";
 
-interface Props {
-    rank: typeRank;
-    suit: typeSuit;
-}
-
-const Card: React.FC<Props> = ({rank, suit}) => {
+const Card: React.FC<ICard> = ({rank, suit}) => {
     const suitsObject = {
-        diams: '♦️',
-        hearts: '♥️',
-        clubs: '♣️',
-        spades: '♠️',
+        diams: '♦',
+        hearts: '♥',
+        clubs: '♣',
+        spades: '♠',
     }
     return (
         <span className={`card rank-${rank.toLowerCase()} ${suit}`}>
