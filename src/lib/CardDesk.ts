@@ -6,16 +6,32 @@ class CardDesk {
     public cardDesk: Card[] = [];
 
     constructor() {
-        // логика генерации колоды
-        this.cardDesk = [new Card('2', 'hearts')] //52
+        for (const rank of this.ranks) {
+            for (const suit of this.suits) {
+                this.cardDesk.push(new Card(rank, suit))
+            }
+        }
     }
 
     getCard(): Card {
-
+        const randomCardIndex = Math.floor(Math.random() * this.cardDesk.length)
+        const randomCard = this.cardDesk[randomCardIndex]
+        this.cardDesk.splice(randomCardIndex, 1)
+        return randomCard
     }
 
-    getCards(howMany: number=5): Card[] {
-        // for + getCard (howmany)
+    getCards(howMany: number = 5): Card[] {
+        const randomCards: Card[] = []
+
+        for (let i = 0; i < howMany; i++) {
+            if (this.cardDesk.length === 0) {
+                console.log(`Колода пуста. Вытянуто ${this.cardDesk.length} карт`);
+                break;
+            }
+            randomCards.push(this.getCard());
+        }
+
+        return randomCards;
     }
 }
 
