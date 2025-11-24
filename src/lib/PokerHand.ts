@@ -12,8 +12,6 @@ class PokerHand {
     public countSuits: {[key: string]: number} = {}
     constructor(myHand: ICard[]) {
         this.myHand = myHand
-        console.log(myHand)
-
         this.numberRanks = this.myHand.map(card => {
             return rankToNumbers[card.rank]
         })

@@ -31,8 +31,6 @@ function App() {
         }
     }
 
-
-
     return (
         <>
             <p>Cards count: {Deck.cardDeck.length}</p>
